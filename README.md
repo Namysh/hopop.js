@@ -1,4 +1,4 @@
-# Hopup.js
+# Hopop.js
 
 I made a librairy like Popoverjs in order to train myself in javascript
 [you can see an example here](https://namysh.github.io/hopop/)
