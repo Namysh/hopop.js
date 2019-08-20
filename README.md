@@ -10,7 +10,7 @@ First, you need to import the JS and the CSS file.
 <script  type="text/javascript"  src="js/hopop.js"></script>
 <link  rel="stylesheet"  href="css/hopop.css">
 ```
-Afterward you can select elements by its id or class
+Afterward you can select elements by its id or class (the first argument) and then pass a function that will return the content (HTML) of the future popup
 ```javascript
 hopop(".class", function(element) {
 	return  "Description :" + element.dataset.description;
