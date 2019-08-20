@@ -5,7 +5,7 @@ I made a librairy like Popper.js in order to train myself in javascript
 
 
 ## Usage
-First, you need to import the JS and the CSS file.
+First, you need to download the JS and the CSS file then import them.
 ```html
 <script  type="text/javascript"  src="js/hopop.js"></script>
 <link  rel="stylesheet"  href="css/hopop.css">
