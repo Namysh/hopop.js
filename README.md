@@ -19,3 +19,4 @@ hopop("#id", function(element) {
 	return  "Description :" + element.dataset.description;
 });
 ```
+You can of course put what you want in the popup's content like images for example
