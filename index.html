@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="css/hopop.css">
 </head>
 <body>
-    <img id="chien1" data-description="Ceci est un jolie chien" src="img/chien.jpg">
+    <img id="dog" data-description="Ceci est un jolie chien" src="img/dog.jpg">
+    <img class="cat" src="img/cat.jpg">
+
     
     <script>
-        hopop("#chien1", function(element) {
+        hopop("#dog", function(element) {
             return element.dataset.description;
+        });
+        hopop(".cat", function(element) {
+            let content = "<span style='color:red'>Voici ce que regarde le chat <span><br>";
+            content += "<img src='img/bird.jpg' style='width:150px'>";
+            return content;
         });
     </script>
 
