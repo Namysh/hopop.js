@@ -1,6 +1,6 @@
 # Hopop.js
 
-I made a librairy like Popoverjs in order to train myself in javascript
+I made a librairy like Popper.js in order to train myself in javascript
 [you can see an example here](https://namysh.github.io/hopop.js/)
 
 
