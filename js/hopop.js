@@ -30,7 +30,7 @@ function hopop(selector, content_function){
             var popover = document.createElement("div");
             // On affecte des attributs au popup
             popover.setAttribute("id","popup"+id);
-            popover.setAttribute("class","popup");
+            popover.setAttribute("class","hopup");
             popover.innerHTML = content;
             // On insère le tout à la fin du code HTML
             document.body.lastElementChild.after(popover);
