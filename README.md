@@ -1,7 +1,10 @@
 # Hopop.js
 
-I made a librairy like Popper.js in order to train myself in javascript
-[you can see an example here](https://namysh.github.io/hopop.js/)
+I made a librairy like Popper.js in order to train myself in javascript.
+
+[You can see an example here](https://namysh.github.io/hopop.js/)
+
+as you can see, a popup appears when you move the mouse over an element
 
 
 ## Usage
