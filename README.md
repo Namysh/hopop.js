@@ -10,8 +10,8 @@ as you can see, a popup appears when you move the mouse over an element
 ## Usage
 First, you need to download the JS and the CSS file then import them.
 ```html
-<script  type="text/javascript"  src="js/hopop.js"></script>
-<link  rel="stylesheet"  href="css/hopop.css">
+<script  type="text/javascript"  src="hopop.js"></script>
+<link  rel="stylesheet"  href="hopop.css">
 ```
 Afterward you can select elements by its id or class (the first argument) and then pass a function that will return the content (HTML) of the future popup. You can add a position for the popup (top, right, bottom, left)
 ```javascript
