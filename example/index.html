@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hopop.js</title>
+    <script type="text/javascript" src="../hopop.js"></script>
+    <link rel="stylesheet" href="css/hopop.css">
+    <style>
+    img{
+        width:300px;
+    }
+    span{
+        border: 10px solid green;
+        padding: 25px;
+        margin: 25px
+    }
+    </style>
+</head>
+<body>
+    
+    <img class="cat" src="img/cat.jpg">
+
+    
+    <div style=" margin-left: 30%">
+        <span id="top">TOP</span>
+        <span id="right">RIGHT</span>
+        <span id="bottom">BOTTOM</span>
+        <span id="left">LEFT</span>
+    </div>
+    
+    
+    <script>
+       
+        hopop(".cat", function(element) {
+            let content = "<p style='color:red'>Voici ce que regarde le chat <p>";
+            content += "<img src='img/bird.jpg' style='width:50px'>";
+            return content;
+        }, "right");
+    
+        hopop("#top", function(element){
+            return "Popup en haut";
+        }, "top")
+        hopop("#right", function(element){
+            return "Popup à droite";
+        }, "right")
+        hopop("#bottom", function(element){
+            return "Popup en bas";
+        }, "bottom")
+        hopop("#left", function(element){
+            return "Popup à gauche";
+        }, "left")
+
+    </script>
+
+</body>
+</html>
