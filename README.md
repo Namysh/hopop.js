@@ -29,3 +29,5 @@ hopop("#id", function(element) {
 }, "top");
 ```
 You can of course put what you want in the popup's content like images for example
+
+Plus if you want to change the design of the popup you can edit the CSS directly, the base code is really simple
