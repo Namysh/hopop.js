@@ -4,8 +4,8 @@ function hopop(selector, content_function, poos = "bottom"){
     let elementArray = [];
     let posList = ["top", "right", "bottom", "left"];
     //pos = pos in posList && pos;
-    var pos = posList.indexOf(poos) !== -1 && poos;
-    !pos && console.log("Erreur dans la position")
+    var pos = posList.indexOf(poos) > -1 && poos;
+    !pos && console.error(`La position "${poos}" n'est pas valide`);
     switch(firstCharacter){
         case ".":
             elementArray =  [...document.getElementsByClassName(followingCharacters)];
@@ -42,9 +42,7 @@ function hopop(selector, content_function, poos = "bottom"){
             let currentElementData = e.currentTarget.getBoundingClientRect();
             let currentPopoverData = popover.getBoundingClientRect();
             currentElementData.detailledData = window.getComputedStyle(element);
-
-            
-            
+            // Valeur de tailles et de positions des éléments
             let get = {
                 currentElementX : currentElementData.left + window.scrollX,
                 currentElementY : currentElementData.top + window.scrollY,
@@ -52,45 +50,23 @@ function hopop(selector, content_function, poos = "bottom"){
                 currentElementHeight : currentElementData.height,
                 currentPopoverWidth : currentPopoverData.width,
                 currentPopoverHeight : currentPopoverData.height,
-                margin : {
-                    top: parseFloat(currentElementData.detailledData["margin-top"]),
-                    right: parseFloat(currentElementData.detailledData["margin-right"]),
-                    bottom: parseFloat(currentElementData.detailledData["margin-bottom"]),                    
-                    left : parseFloat(currentElementData.detailledData["margin-left"])
-
-                },
-                padding : {
-                    top: parseFloat(currentElementData.detailledData["padding-top"]),
-                    right: parseFloat(currentElementData.detailledData["padding-right"]),
-                    bottom: parseFloat(currentElementData.detailledData["padding-bottom"]),                    
-                    left : parseFloat(currentElementData.detailledData["padding-left"])
-
-                },
-                border : {
-                    top: parseFloat(currentElementData.detailledData["border-top"]),
-                    right: parseFloat(currentElementData.detailledData["border-right"]),
-                    bottom: parseFloat(currentElementData.detailledData["border-bottom"]),                    
-                    left : parseFloat(currentElementData.detailledData["border-left"])
-
-                },
+            
             };
 
-            // left = rect.left - margin left right = rect.right - margin right
-            popover.style.top = pos === "bottom" ? (get.currentElementY + get.currentElementHeight) + 5 + "px" :
-                                pos === "right" ? (get.currentElementY + get.currentElementHeight / 2 - (get.currentPopoverHeight/2)) + "px" :
-                                pos === "top" ? (get.currentElementY - get.currentPopoverHeight) - 5 + "px" :
-                                pos === "left" ? (get.currentElementY + get.currentElementHeight / 2 - (get.currentPopoverHeight/2)) + "px" :
-                                console.log("pas dchance");
+            popover.style.top = pos === "bottom" ? get.currentElementY + get.currentElementHeight + 5 + "px" :
+                                pos === "right" ? get.currentElementY + get.currentElementHeight / 2 - get.currentPopoverHeight / 2 + "px" :
+                                pos === "top" ? get.currentElementY - get.currentPopoverHeight - 5 + "px" :
+                                pos === "left" ? get.currentElementY + get.currentElementHeight / 2 - get.currentPopoverHeight/2 + "px" :
+                                " 0 px";
             //TODO pb si l'image a pas chargé alors le height sera mauvais et du coup ca va mal positionner au debut
-            popover.style.left = pos === "bottom" ? (get.currentElementX + (get.currentElementWidth / 2) - (get.currentPopoverWidth / 2)) >= 0 ?
-            (get.currentElementX + (get.currentElementWidth / 2) - (get.currentPopoverWidth / 2 ) + "px"):
-            (0 + "px") : 
-            pos === "right" ? (get.currentElementX + get.currentElementWidth) + 5 + "px" : 
-            pos === "top" ? (get.currentElementX + (get.currentElementWidth / 2) - (get.currentPopoverWidth / 2)) + "px" :
-            pos === "left" ? get.currentElementX - get.currentPopoverWidth - 5 + "px" : 
-            console.log("pas dchance");
+            popover.style.left = pos === "bottom" ? ( get.currentElementX + get.currentElementWidth / 2 - get.currentPopoverWidth / 2 ) >= 0 ?
+                                 (get.currentElementX + (get.currentElementWidth / 2) - (get.currentPopoverWidth / 2 ) + "px") :
+                                 (0 + "px") : 
+                                 pos === "right" ? (get.currentElementX + get.currentElementWidth) + 5 + "px" : 
+                                 pos === "top" ? (get.currentElementX + (get.currentElementWidth / 2) - (get.currentPopoverWidth / 2)) + "px" :
+                                 pos === "left" ?   get.currentElementX - 5   - get.currentPopoverWidth + "px" :
+                                 "0 px";
             // option popup top ou interieur top, gauche ou interieur gauche etc
-
         });
 
         element.addEventListener("mouseout", (e) => {
@@ -108,6 +84,4 @@ function hopop(selector, content_function, poos = "bottom"){
         });
     });
 
-    
 }    
-
